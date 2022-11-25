@@ -1,0 +1,8 @@
+{
+  "name": "inventary",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

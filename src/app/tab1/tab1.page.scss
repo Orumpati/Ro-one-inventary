@@ -1,0 +1,246 @@
+.backion{
+  margin-top: 5px;
+  font-size: 23px;
+}
+
+h2{
+  margin: 0;
+  padding-left: 15px; 
+}
+
+.container{
+  width: 100%;
+background-color: #dddddd;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: scroll;
+  height: 1600px;
+}
+
+//Profile image and details styles header starts
+.title{
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5195A8), color-stop(100, #70EAFF));
+  background: -moz-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+  background: -ms-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+  background: -o-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+  background: linear-gradient(to bottom right, #5195A8 0%, #70EAFF 100%);
+
+  padding: 10px;
+  color: #f6f6f6;
+  display: flex;
+}
+.headerimg{
+  margin-right: 10px;
+  
+  }
+  .profiledetails{
+    text-align: left;
+  }
+
+  //searchbar header styles starts
+  .searchbox{
+    display: flex;
+    background-color: rgb(75, 235, 136);
+  }
+  .searchfield{
+    width: 400px;
+    margin-right: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  
+  }
+  .addupcbtn{
+    padding-top: 10px;
+  }
+
+
+ //table and checkout styles 
+  .d-flex{
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    border-radius: 0 0 5px 5px;
+    padding: 25px;
+  }
+
+  //table styles
+  #table{
+    flex: 4;
+  }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 30px ;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+
+    th {
+    height: 50px;
+   
+    }
+
+    tr{
+      border-radius: 15px;
+      border-color: transparent;
+      box-shadow: 0 0 15px -2px #8c8c8c;
+    }
+
+    td, th {
+      text-align: left;
+      padding: 8px;
+      
+    }
+    
+  }
+
+  
+.wrapper{
+  height: 40px;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  
+}
+.wrapper span{
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+.wrapper span.num{
+  font-size: 18px;
+  border-right: 2px solid rgba(0,0,0,0.2);
+  border-left: 2px solid rgba(0,0,0,0.2);
+  pointer-events: none;
+}
+.wrapper label{
+  padding-left: 5px;
+  padding: 3px;
+  pointer-events: none;
+}
+
+.parent{
+  display: flex;
+  margin: 0;
+padding: 0;
+border: none;
+}
+.deletebtn{
+  height: 40px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  
+}
+
+.deleteicon{
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    color: red;
+  
+  }
+
+//checkout page starts
+.Yorder{
+  flex: 1.5;
+  margin-left: 10px;
+  
+}
+.Yorder{
+  margin-top: 15px;
+  height: 600px;
+  padding: 20px;
+
+  background: rgb(65, 233, 185);
+  
+  
+  border-radius: 20px;
+}
+
+
+.Yorder::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  background: rgb(43, 42, 42);
+  width: 90%;
+  height:4px;
+  left:3%;
+  border-radius:50%;
+  filter: blur(3px);
+}
+.checkoutbox{
+    margin-top: 15px;
+    width: 100%;
+    height: 600px;
+border-radius: 9px;
+    box-shadow: #dddddd;
+    background-color: rgb(75, 235, 203);   background-color: rgb(75, 235, 203);
+    border: 2px solid red;
+}
+
+.addupcbtn{
+  padding-top: 10px;
+}
+
+input[type=radio] {
+  border: 0px;
+  top: 5px;
+  width: 10%;
+  position: relative;
+  background-color: #15d215;
+  height: 1.3em;
+  }
+
+  p{
+    display: block;
+    color: #888;
+    margin: 0;
+    padding-left: 25px;
+  }
+  .dropdownicon{
+    margin-left: 30px;
+    font-size: 20px;
+    
+  }
+  button{
+    width: 100%;
+    margin-top: -15px;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    background: #5285ad;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  button:hover{
+    cursor: pointer;
+    background: #0db7a9;
+  }
+
+
+@media screen and (max-width: 1524px){
+  .d-flex{
+        display: grid;
+        grid-template-columns: 100fr ;
+        
+    
+    }
+
+}

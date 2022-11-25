@@ -1,0 +1,176 @@
+<ion-header  >
+  <ion-toolbar >
+    <ion-title >
+      <div style="display:flex ;">
+        <ion-icon class="backion" name="arrow-back-outline"></ion-icon>
+          <h2>Order Page</h2>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  
+ 
+  <div class="container">
+
+    <!--Profile image and details header starts-->
+    <div class="title">
+        <div class="headerimg">
+        <img src="https://github.com/gihan667/ionic-ecommerce-app/blob/master/src/assets/cart/cart1.png?raw=true" class="mr-2"
+          style="width: 70px ;height:70px;">
+          </div>
+          <div class="profiledetails">
+            <div> kabelo </div>
+           <div>kabelo@gmail.com</div>
+           <div> Botswana</div>
+           <div> 9183748494</div>
+      </div>
+    </div>
+
+    <!--Searchbar header-->
+    <div class="searchbox">
+      <div class="searchfield">
+          <ion-input placeholder="Enter Product UPC Code" style="border-radius: 10px; border: 2px solid green;"></ion-input>
+      </div>
+      <div class="addupcbtn">
+        <ion-button>Add</ion-button>
+      </div>
+    </div>
+
+<!--table and checkout starts -->
+  <div class="d-flex">
+
+    <div action="" method="" id="table">
+      <table  style="border:hidden ;   border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+        
+          <tr>
+            <th scope="col" style="border-top-left-radius: 20px;">S.NO</th>
+            <th scope="col">PRODUCT DETAILS</th>
+            <th scope="col">PRODUCT QUANTITY</th>
+            <th scope="col" >UNIT PRICE</th>
+            <th scope="col">TOTAL PRICE</th>
+            <th scope="col" style="border-top-right-radius: 20px;">DELETE</th>
+          </tr>
+      
+        </table>
+        <table style="margin-top: 20px; border-collapse: separate; border-spacing: 0 10px; border-radius: 15px;">
+        
+          <tr *ngFor="let country of countries index as i" style="margin-top:10px ; border-top-left-radius: 10px;">
+
+            <td scope="row" style="border-right: hidden; text-align: right; padding-right: 40px;">{{ i + 1 }}</td>
+
+            <td class="parent"  style="border-right: hidden;">
+              <img src="https://github.com/gihan667/ionic-ecommerce-app/blob/master/src/assets/cart/cart1.png?raw=true" 
+                style="width: 60px ;height:50px;">
+                
+                <div style="padding-left: 20px;" >
+                  <div>  {{ country.area }}</div>
+                 <div>{{ country.name }}</div>
+                 <div>  {{ country.name }}</div>
+            </div>
+            </td>
+
+            <td  style="border-right: hidden; padding-right: 50px;"> 
+                <div class="wrapper">
+                <span class="minus" style="color: #dc143c;">-</span>
+                <span class="num">01</span>
+                <span class="plus" style="color: #32CD32;">+</span>
+              </div>
+          </td>
+
+            <td style="border-right: hidden;">
+              <div class="wrapper">
+                <i class="fa fa-rupee" style="color:#32CD32;"></i>
+                <label>
+              {{ country.population | number }}
+              </label>
+              </div>
+            </td>
+
+            <td  style="border-right: hidden;">
+              <div class="wrapper">
+                <i class="fa fa-rupee" style="color:#32CD32;text-align: left;"></i>
+                <label>
+              {{ country.population | number }}
+                </label>
+            </div>
+            </td>
+
+            <td>
+              <div class="deletebtn">
+               <ion-icon class="deleteicon" name="trash"></ion-icon>
+               </div>
+              </td>
+              
+          </tr>
+        
+      </table>
+    </div>
+
+    <!--checkout page design starts-->
+    <div class="Yorder" >
+      <table style="border:hidden ; background-color: #fff;   box-shadow: 0 5px 10px rgba(0,0,0,0.2);   border-radius: 12px;
+      " >
+        <tr style="border:hidden;" >
+          <td style=" border-right: hidden; font-weight: 600;">Date</td>
+          <td>11/22/2022 11:09 AM</td>
+        </tr>
+        <tr style="border:hidden;" >
+          <td style=" border-right: hidden;  font-weight: 600;">Product Items</td>
+          <td>3</td>
+        </tr>
+        <tr style="border-bottom: hidden;">
+          <td style=" border-right: hidden;  font-weight: 600;">Subtotal</td>
+          <td>$88.00</td>
+        </tr>
+        <tr style="border-bottom: hidden;">
+          <td style=" border-right: hidden;  font-weight: 600;">Discount</td>
+          <td>$1</td>
+        </tr>
+        <tr >
+          <td style=" border-right: hidden;  font-weight: 600;">Tax</td>
+          <td>$4</td>
+        </tr>
+        <tr >
+          <td style=" border-right: hidden;  font-weight: 600;">Total</td>
+          <td>$3456</td>
+        </tr>
+      </table><br>
+
+      <div style="display:flex ;">
+        <input type="radio" name="dbt" value="dbt" checked> <h3>Direct Bank Transfer</h3>
+      </div>
+      <p style="color:white ; margin-left: 20px; margin-top: -13px;" >
+          Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+      </p><br>
+      <div style="display: flex;">
+        <input type="radio" name="dbt" value="cd" >
+         <h3> Cash on Delivery</h3>
+      </div><br>
+      <div style="display: flex; margin-top:-10px;">
+        <input type="radio" name="dbt" value="cd" >
+         <h3>Paypal</h3> 
+         <span>
+        <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+        </span>
+      </div><br>
+
+      <div style="display:flex ; margin-top:-10px;">
+         <h3 style="margin-left:20px ;">PhonePe/GooglePay/BHIM UPI</h3>
+         <ion-icon name="chevron-down-outline" class="dropdownicon"></ion-icon>
+      </div>
+  
+      <br>
+      <button type="button" >Confirm Order</button>
+    </div>
+   </div>
+
+  </div>
+  
+  
+  
+  
+
+ 
