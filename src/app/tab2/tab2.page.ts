@@ -1,31 +1,41 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { Platform } from '@ionic/angular'; 
+//import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  qrCodeString = 'This is amessage';
+ /* qrCodeString = [{
+    "FirstName":"sai"
+  }];*/
   //qrCodeString = 'This is a secret qr code message';
   
-  content_visibility = '';
+ /* content_visibility = '';
   scanSub: any;
-  qrContent!: string;
-  constructor(  public platform: Platform,
+  qrContent!: string;*/
+  constructor(  public platform: Platform, 
     private qrScanner: QRScanner) {
-      this.platform.backButton.subscribeWithPriority(0, () => {
+      /*this.platform.backButton.subscribeWithPriority(0, () => {
         document.getElementsByTagName('body')[0].style.opacity = '1';
         this.scanSub.unsubscribe();
-      });
+      });*/
     }
 
+    allservices = [
+      [{label:'Academic', col8:true}, {label:'School'}],
+      [{label:'Circular'}, {label:'Attendance'}, {label:'Home'}],
+      [{label:'Progress'}, {label:'Class', col8:true}]
+    ]; 
+
   ngOnInit(): void {
+    // let status bar overlay webview
 
 
   }
-  startScanning() {
+  /*startScanning() {
 
     this.qrScanner.prepare().
       then((status: QRScannerStatus) => {
@@ -50,7 +60,7 @@ export class Tab2Page implements OnInit {
         }
       })
       .catch((e: any) => console.log('Error is', e));
-  }
+  }*/
 
  /* async checkPermission() {
     try {

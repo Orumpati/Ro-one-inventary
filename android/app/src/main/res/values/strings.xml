@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">inventary</string>
+    <string name="title_activity_main">inventary</string>
+    <string name="package_name">com.roone.inventary</string>
+    <string name="custom_url_scheme">com.roone.inventary</string>
+</resources>

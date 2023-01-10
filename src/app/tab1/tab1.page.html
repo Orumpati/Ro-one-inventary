@@ -18,7 +18,7 @@
     <div class="title">
         <div class="headerimg">
         <img src="https://github.com/gihan667/ionic-ecommerce-app/blob/master/src/assets/cart/cart1.png?raw=true" class="mr-2"
-          style="width: 70px ;height:70px;">
+          style="width: 70px ;height:70px; border-radius: 13px;">
           </div>
           <div class="profiledetails">
             <div> kabelo </div>
@@ -31,10 +31,10 @@
     <!--Searchbar header-->
     <div class="searchbox">
       <div class="searchfield">
-          <ion-input placeholder="Enter Product UPC Code" style="border-radius: 10px; border: 2px solid green;"></ion-input>
+          <ion-input placeholder="Enter Product UPC Code" style="border-radius: 10px; border: 2px solid green;" [(ngModel)]="upcnumber"></ion-input>
       </div>
       <div class="addupcbtn">
-        <ion-button>Add</ion-button>
+        <ion-button (click)="getitembyupc()">Add</ion-button>
       </div>
     </div>
 
@@ -46,37 +46,37 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
         
           <tr>
-            <th scope="col" style="border-top-left-radius: 20px;">S.NO</th>
+            <th scope="col" >S.NO</th>
             <th scope="col">PRODUCT DETAILS</th>
             <th scope="col">PRODUCT QUANTITY</th>
-            <th scope="col" >UNIT PRICE</th>
+            <th scope="col" style="padding-right:30px ;">UNIT PRICE</th>
             <th scope="col">TOTAL PRICE</th>
-            <th scope="col" style="border-top-right-radius: 20px;">DELETE</th>
+            <th scope="col" >DELETE</th>
           </tr>
       
         </table>
-        <table style="margin-top: 20px; border-collapse: separate; border-spacing: 0 10px; border-radius: 15px;">
+        <table style="margin-top: 10px; border-collapse: separate; border-spacing: 0 10px; border-radius: 15px;">
         
-          <tr *ngFor="let country of countries index as i" style="margin-top:10px ; border-top-left-radius: 10px;">
+          <tr *ngFor="let country of itemsCart index as i" style="margin-top:10px ; border-top-left-radius: 10px;">
 
-            <td scope="row" style="border-right: hidden; text-align: right; padding-right: 40px;">{{ i + 1 }}</td>
+            <td scope="row" style="border-right: hidden; padding-right: 40px; ">{{ i + 1 }}</td>
 
-            <td class="parent"  style="border-right: hidden;">
+            <td class="parent"  style="border-right: hidden; ">
               <img src="https://github.com/gihan667/ionic-ecommerce-app/blob/master/src/assets/cart/cart1.png?raw=true" 
-                style="width: 60px ;height:50px;">
+                style="width: 60px ;height:50px; border-radius: 9px;">
                 
                 <div style="padding-left: 20px;" >
-                  <div>  {{ country.area }}</div>
-                 <div>{{ country.name }}</div>
-                 <div>  {{ country.name }}</div>
+                  <div>  {{ country.productId}}</div>
+                 <div>{{ country.Name }}</div>
+                 <div>  {{ country.description }}</div>
             </div>
             </td>
 
-            <td  style="border-right: hidden; padding-right: 50px;"> 
+            <td  style="border-right: hidden; "> 
                 <div class="wrapper">
-                <span class="minus" style="color: #dc143c;">-</span>
-                <span class="num">01</span>
-                <span class="plus" style="color: #32CD32;">+</span>
+                <span class="minus" style="color: #dc143c;" (click)="minus(country)">-</span>
+                <span class="num">{{country.productQuantity}}</span>
+                <span class="plus" style="color: #32CD32;" (click)="plus(country)">+</span>
               </div>
           </td>
 
@@ -84,7 +84,7 @@
               <div class="wrapper">
                 <i class="fa fa-rupee" style="color:#32CD32;"></i>
                 <label>
-              {{ country.population | number }}
+              {{ country.price | number }}
               </label>
               </div>
             </td>
@@ -93,17 +93,17 @@
               <div class="wrapper">
                 <i class="fa fa-rupee" style="color:#32CD32;text-align: left;"></i>
                 <label>
-              {{ country.population | number }}
+              {{ country.price * country.productQuantity | number }}
                 </label>
             </div>
             </td>
 
             <td>
               <div class="deletebtn">
-               <ion-icon class="deleteicon" name="trash"></ion-icon>
+               <ion-icon class="deleteicon" name="trash" (click)="removeDocument()"></ion-icon>
                </div>
               </td>
-              
+
           </tr>
         
       </table>
@@ -111,46 +111,57 @@
 
     <!--checkout page design starts-->
     <div class="Yorder" >
-      <table style="border:hidden ; background-color: #fff;   box-shadow: 0 5px 10px rgba(0,0,0,0.2);   border-radius: 12px;
-      " >
+      <table style="border:hidden ; background-color: #fff;   box-shadow: 0 5px 10px rgba(0,0,0,0.2);   border-radius: 12px;" >
         <tr style="border:hidden;" >
           <td style=" border-right: hidden; font-weight: 600;">Date</td>
-          <td>11/22/2022 11:09 AM</td>
+          <td>{{OrderTime}}</td>
         </tr>
         <tr style="border:hidden;" >
           <td style=" border-right: hidden;  font-weight: 600;">Product Items</td>
-          <td>3</td>
+          <td>{{itemsCart.length}}</td>
         </tr>
         <tr style="border-bottom: hidden;">
           <td style=" border-right: hidden;  font-weight: 600;">Subtotal</td>
-          <td>$88.00</td>
+          <td>
+            <i class="fa fa-rupee" style="color:#32CD32;text-align: left;"></i>
+            {{grandsum}}
+          </td>
         </tr>
         <tr style="border-bottom: hidden;">
           <td style=" border-right: hidden;  font-weight: 600;">Discount</td>
-          <td>$1</td>
+          <td>
+            <i class="fa fa-rupee" style="color:#32CD32;text-align: left;"></i>
+            {{granddiscountprice}}
+          </td>
         </tr>
         <tr >
           <td style=" border-right: hidden;  font-weight: 600;">Tax</td>
-          <td>$4</td>
+          <td>
+            <i class="fa fa-rupee" style="color:#32CD32;text-align: left;"></i>
+            {{grandtax}}
+          </td>
         </tr>
         <tr >
           <td style=" border-right: hidden;  font-weight: 600;">Total</td>
-          <td>$3456</td>
+          <td>
+            <i class="fa fa-rupee" style="color:#32CD32;text-align: left;"></i>
+            {{OrderTotal}}
+          </td>
         </tr>
       </table><br>
 
       <div style="display:flex ;">
-        <input type="radio" name="dbt" value="dbt" checked> <h3>Direct Bank Transfer</h3>
+        <input type="radio" name="dbt" ngModel value="Bank Transfer" > <h3>Direct Bank Transfer</h3>
       </div>
       <p style="color:white ; margin-left: 20px; margin-top: -13px;" >
           Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
       </p><br>
       <div style="display: flex;">
-        <input type="radio" name="dbt" value="cd" >
+        <input type="radio" name="dbt" ngModel="ordertype"  value="cash on Delivery" >
          <h3> Cash on Delivery</h3>
       </div><br>
       <div style="display: flex; margin-top:-10px;">
-        <input type="radio" name="dbt" value="cd" >
+        <input type="radio" ngModel name="dbt" value="ordertype" >
          <h3>Paypal</h3> 
          <span>
         <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
@@ -163,7 +174,7 @@
       </div>
   
       <br>
-      <button type="button" >Confirm Order</button>
+      <button type="button" (click)="confirmorder()" >Confirm Order</button>
     </div>
    </div>
 

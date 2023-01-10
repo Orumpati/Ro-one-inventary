@@ -1,31 +1,35 @@
-import { Component } from '@angular/core';
-import { BarcodeScanner, BarcodeScannerOptions } from "@ionic-native/barcode-scanner/ngx";
+import { Component, OnInit } from '@angular/core';
+import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
 
-  encodedData: any;
-  scannedBarCode!: {};
-  barcodeScannerOptions: BarcodeScannerOptions;
+ // encodedData: any;
+  //scannedBarCode!: {};
+  //barcodeScannerOptions: BarcodeScannerOptions;
   
-  constructor(private scanner: BarcodeScanner) {
+  constructor( private barcodeScanner: BarcodeScanner) {}
   
-    this.encodedData = "Programming isn't about what you know";
+    //this.encodedData = "Programming isn't about what you know";
     
-    this.barcodeScannerOptions = {
+    /*this.barcodeScannerOptions = {
       showTorchButton: true,
       showFlipCameraButton: true
-    };
-    
+    };*/
+    ngOnInit(): void {
+        
+  this.barcodeScanner.scan().then((barcodeData: any) => {
+    console.log('Barcode data', barcodeData);
+   }).catch((err: any) => {
+       console.log('Error', err);
+   });
+      
+    }
+
+
   }
-  scanBRcode() {
-    this.scanner.scan().then((res: {}) => {
-        this.scannedBarCode = res;
-      }).catch((err: any) => {
-        alert(err);
-      });
-  }
-}
+
+

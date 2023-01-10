@@ -40,7 +40,7 @@ background-color: #dddddd;
   //searchbar header styles starts
   .searchbox{
     display: flex;
-    background-color: rgb(75, 235, 136);
+    background-color: rgb(203, 227, 222);
   }
   .searchfield{
     width: 400px;
@@ -48,7 +48,8 @@ background-color: #dddddd;
   padding-left: 20px;
   padding-bottom: 20px;
   padding-top: 10px;
-  
+  color: rgb(56, 126, 230);
+  font-weight: 600;
   }
   .addupcbtn{
     padding-top: 10px;

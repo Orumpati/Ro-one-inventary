@@ -12,6 +12,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
+
+import { DatePipe } from '@angular/common';
 @NgModule({
   imports: [
     IonicModule,
@@ -27,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page],
+  providers: [DatePipe],
 })
 export class Tab1PageModule {}

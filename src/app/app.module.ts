@@ -13,7 +13,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
-  providers: [BarcodeScanner,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },QRScanner,],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },QRScanner,],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,7 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId:'com.roone.inventary',
+  //appId: 'io.ionic.starter',
   appName: 'inventary',
   webDir: 'www',
   bundledWebRuntime: false,

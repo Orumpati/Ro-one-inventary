@@ -1,4 +1,4 @@
-<ion-header [style.visibility]="content_visibility">
+<!-- <ion-header [style.visibility]="content_visibility">
   <ion-toolbar color="primary">
     <ion-title>
       QR Code
@@ -32,4 +32,13 @@
       </ion-button>
       <p *ngIf="qrContent">QR Scan text: {{ qrContent }}</p>
   </div>
-</ion-content>
+</ion-content> -->
+
+
+<ion-row *ngFor="let row of allservices">
+  <ng-container *ngFor="let item of row">
+    <ion-col style="padding:1px; background-color: cadetblue;" [attr.col-8]="item.col8">
+      <div class="tile">{{item.label}}</div>
+    </ion-col>
+  </ng-container>
+</ion-row>
