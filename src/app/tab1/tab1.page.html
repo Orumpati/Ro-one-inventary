@@ -55,7 +55,7 @@
           </tr>
       
         </table>
-        <table style="margin-top: 10px; border-collapse: separate; border-spacing: 0 10px; border-radius: 15px;">
+        <table style=" border-collapse: separate; border-spacing: 0 10px; border-radius: 15px;">
         
           <tr *ngFor="let country of itemsCart index as i" style="margin-top:10px ; border-top-left-radius: 10px;">
 
@@ -100,7 +100,7 @@
 
             <td>
               <div class="deletebtn">
-               <ion-icon class="deleteicon" name="trash" (click)="removeDocument()"></ion-icon>
+               <ion-icon class="deleteicon" name="trash" (click)="removeDocument(country)"></ion-icon>
                </div>
               </td>
 
@@ -150,18 +150,20 @@
         </tr>
       </table><br>
 
-      <div style="display:flex ;">
+      <!--<div style="display:flex ;">
         <input type="radio" name="dbt" ngModel value="Bank Transfer" > <h3>Direct Bank Transfer</h3>
       </div>
       <p style="color:white ; margin-left: 20px; margin-top: -13px;" >
           Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-      </p><br>
+      </p>-->
+      <br>
       <div style="display: flex;">
         <input type="radio" name="dbt" ngModel="ordertype"  value="cash on Delivery" >
          <h3> Cash on Delivery</h3>
       </div><br>
       <div style="display: flex; margin-top:-10px;">
         <input type="radio" ngModel name="dbt" value="ordertype" >
+        
          <h3>Paypal</h3> 
          <span>
         <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
@@ -174,11 +176,37 @@
       </div>
   
       <br>
-      <button type="button" (click)="confirmorder()" >Confirm Order</button>
+      <ion-button type="button" expand="block" color="success" shape="round" id="open-custom-dialog"  >Confirm Order</ion-button>
     </div>
    </div>
+</div>
+  
 
-  </div>
+
+  <ion-modal id="example-modal" #modal trigger="open-custom-dialog" style="border-radius: 20px;">
+    <ng-template>
+      <div class="wrapperss">
+        <h1 style="margin-left: 20px;">Payment Notification</h1>
+
+        <div class="success">
+          <img src="https://www.chicagocustomlabels.com/wp-content/uploads/2020/03/payment_success.png">
+        </div>
+
+        <div class="details">
+          <p ><b>Your payment was successful!</b></p><br>
+          <p>Transaction ID:8273647382913 </p>
+          <p>Amount Paid: {{OrderTotal}}</p>
+        
+     </div><br>
+          <div (click)="modal.dismiss()" style="width: 200px; margin-left:200px;">
+            <ion-button expand="block" color="success"  shape="round">OK</ion-button>
+          </div>
+          
+        
+      
+      </div>
+    </ng-template>
+  </ion-modal>
   
   
   
